@@ -14,7 +14,7 @@ Plugins and libraries in use:
 * [jQuery](https://jquery.com/)
 
 # Demo
-[Demo](https://LizzAy.github.io/cassette-tape/)
+[Demo](https://lizzay.github.io/SamplingRecorder/)
 
 ### Install gulp and Bower
 
