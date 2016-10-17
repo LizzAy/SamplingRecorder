@@ -1,8 +1,10 @@
-# Cassette Tape
+# SamplingRecorder
 
-Cassette Tape lets you record you freestyle in the browser. You just need to press play to listen to the hiphop loop and when you feel ready just press rec and it starts recording your voice. After that a wav file with your freestyle is generated and you can save on your computer.
+Here you can sample your own hit by choosing your o-tone and a beackground beat. Have a lot of fun with this!
 
-This is a Chrome Experiment. It was developed to work only in this browser. It uses some technologies not yet fully supported by all browsers.
+This project ist forked from miukimiu (https://github.com/miukimiu/cassette-tape)
+
+This is a Chrome Experiment. It was developed to work only in this browser. It uses some technologies not yet fully supported by all browsers. 
 
 Plugins and libraries in use:
 
@@ -12,7 +14,7 @@ Plugins and libraries in use:
 * [jQuery](https://jquery.com/)
 
 # Demo
-[Demo](https://miukimiu.github.io/cassette-tape/)
+[Demo](https://LizzAy.github.io/cassette-tape/)
 
 ### Install gulp and Bower
 
