@@ -182,7 +182,7 @@ $(function() {
 
         audio.play();
     }
-
+/*
     // new audio play function
     sound1.click(function() {
       if (audio.paused) {
@@ -196,7 +196,7 @@ $(function() {
         newaudio.pause();
       }
     });
-
+*/
     // play function
     playPause.click(function() {
 
