@@ -195,7 +195,7 @@ $(function() {
         playActive = false;
         newaudio.pause();
       }
-    })
+    });
 
     // play function
     playPause.click(function() {
