@@ -35,7 +35,7 @@ $(function() {
         duration = audio.duration,
         playlist = ['dirty_south_loop_85bpm', 'pop_hiphop_loop_100bpm'],
 // start new Sounds
-        sounds = ['kreppes_otoncharts', 'geschlechtsorgane_otoncharts']
+        sounds = ['kreppes_otoncharts', 'geschlechtsorgane_otoncharts'],
 // end new Sounds
         dir = "audio/",
         ext = ".mp3",
