@@ -53,7 +53,7 @@ $(function() {
         input,
         analyzer,
         currentTrack = 0,
-        currentAudio = 0
+        currentAudio = 0,
         currentLoop = 0,
         seekslider,
         seeking = false,
