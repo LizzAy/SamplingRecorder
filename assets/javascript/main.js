@@ -31,8 +31,10 @@ $(function() {
         tracktitle = Snap('#tracktitle tspan'),
         buttonYposition = 0.679477,
         buttonYpositionActive = 8.679477,
-        newbuttonYposition = 15,
-        newbuttonYpositionActive = 23,
+        audioButtonYposition = 15,
+        audiobButtonYpositionActive = 23,
+        loopButtonYposition = 15,
+        loopButtonYpositionActive = 55,
         bboxL = tapeL.getBBox(),
         bboxR = tapeR.getBBox(),
         audio = new Audio(),
@@ -182,13 +184,13 @@ $(function() {
       // button anim1
       var anim1 = function() {
           sound1.animate({
-              'transform': 't11, ' + newbuttonYpositionActive
+              'transform': 't11, ' + audioButtonYpositionActive
           }, 200, mina.linear, anim2);
       };
 
       var anim2 = function() {
           sound1.animate({
-              'transform': 't11, ' + newbuttonYposition
+              'transform': 't11, ' + audioButtonYposition
           }, 200);
       };
 
@@ -213,13 +215,13 @@ $(function() {
       // button anim1
       var anim1 = function() {
           sound2.animate({
-              'transform': 't61, ' + newbuttonYpositionActive
+              'transform': 't61, ' + audioButtonYpositionActive
           }, 200, mina.linear, anim2);
       };
 
       var anim2 = function() {
           sound2.animate({
-              'transform': 't61, ' + newbuttonYposition
+              'transform': 't61, ' + audioButtonYposition
           }, 200);
       };
 
@@ -245,13 +247,13 @@ $(function() {
       // button anim1
       var anim1 = function() {
           loop1.animate({
-              'transform': 't111, ' + newbuttonYpositionActive
-          }, 200, mina.linear, anim2);
+              'transform': 't111, ' + loopButtonYpositionActive
+          }, 200);
       };
 
       var anim2 = function() {
           loop1.animate({
-              'transform': 't111, ' + newbuttonYposition
+              'transform': 't111, ' + loopButtonYposition
           }, 200);
       };
 
@@ -264,10 +266,10 @@ $(function() {
           audio.play();
       }
       else {
-        playActive = false;
-        anim1();
+          playActive = false;
+          anim2();
 
-        audio.pause();
+          audio.pause();
       }
     });
 
