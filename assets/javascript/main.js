@@ -18,6 +18,10 @@ $(function() {
         forward = Snap('#forward'),
         wheelL = Snap('#wheel-l'),
         wheelR = Snap('#wheel-r'),
+// start new Buttons
+        sound1 = Snap('#sound1'),
+        sound2 = Snap('#sound2'),
+// end new Buttons
         tape = Snap('#tape'),
         tapeL = Snap('#tapeL'),
         tapeR = Snap('#tapeR'),
@@ -30,6 +34,9 @@ $(function() {
         audio = new Audio(),
         duration = audio.duration,
         playlist = ['dirty_south_loop_85bpm', 'pop_hiphop_loop_100bpm'],
+// start new Sounds
+        sounds = ['kreppes_otoncharts', 'geschlechtsorgane_otoncharts'],
+// end new Sounds
         dir = "audio/",
         ext = ".mp3",
         input,
@@ -65,6 +72,18 @@ $(function() {
         titleUpdate();
     });
 
+/*    // new Audio Object
+    newaudio.src = dir + sounds[0] + ext;
+
+    newaudio.addEventListener('ended', function() {
+        this.currentTime = 0;
+        this.play();
+    }, false);
+
+    newaudio.addEventListener("tracktitle", function() {
+      titleUpdate();
+    });
+*/
     // wheel animation left
     function wheelAnimationL() {
         wheelL.animate({
@@ -163,7 +182,21 @@ $(function() {
 
         audio.play();
     }
+/*
+    // new audio play function
+    sound1.click(function() {
+      if (audio.paused) {
+          playActive = true;
 
+          newaudio.play();
+          titleUpdate();
+      }
+      else {
+        playActive = false;
+        newaudio.pause();
+      }
+    });
+*/
     // play function
     playPause.click(function() {
 
@@ -273,7 +306,7 @@ $(function() {
     // end forward function
 
     function titleUpdate() {
-        tracktitle.node.innerHTML = playlist[currentTrack];
+        tracktitle.node.innerHTML = sounds[currentTrack];
     }
 
     // ******** Recorder ******* //
