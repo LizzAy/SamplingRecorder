@@ -33,8 +33,8 @@ $(function() {
         buttonYpositionActive = 8.679477,
         audioButtonYposition = 15,
         audiobButtonYpositionActive = 23,
-        loopButtonYposition = 15,
-        loopButtonYpositionActive = 55,
+        loopButtonYposition = 55,
+        loopButtonYpositionActive = 15,
         bboxL = tapeL.getBBox(),
         bboxR = tapeR.getBBox(),
         audio = new Audio(),
@@ -203,9 +203,10 @@ $(function() {
           audio.play();
       }
       else {
-        playActive = false;
-        anim1();
-        audio.pause();
+          playActive = false;
+          anim1();
+
+          audio.pause();
       }
     });
 
@@ -234,32 +235,21 @@ $(function() {
           audio.play();
       }
       else {
-        playActive = false;
-        anim1();
+          playActive = false;
+          anim1();
 
-        audio.pause();
+          audio.pause();
       }
     });
 
     // new loop play function for loop 1
     loop1.click(function() {
       audio.src = dir + loops[0] + ext;
-      // button anim1
-      var anim1 = function() {
-          loop1.animate({
-              'transform': 't111, ' + loopButtonYpositionActive
-          }, 200);
-      };
-
-      var anim2 = function() {
-          loop1.animate({
-              'transform': 't111, ' + loopButtonYposition
-          }, 200);
-      };
 
       if (audio.paused) {
           playActive = true;
-          anim1();
+          // button anim1
+          playPause.transform('t111, ' + loopButtonYpositionActive);
 
           // start audio
           titleUpdateLoop(0);
@@ -267,7 +257,8 @@ $(function() {
       }
       else {
           playActive = false;
-          anim2();
+          // button anim1
+          playPause.transform('t111, ' + loopButtonYposition);
 
           audio.pause();
       }
