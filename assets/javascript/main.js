@@ -210,7 +210,7 @@ $(function() {
       }
     });
 
-/*    // new audio play function for audio 2
+    // new audio play function for audio 2
     sound2.click(function() {
       // button anim1
       var anim1 = function() {
@@ -243,29 +243,7 @@ $(function() {
           audio.pause();
       }
     });
-*/
-    // sound2 function
-    sound2.click(function() {
-
-        if (audio.paused) {
-            audio.src = dir + sounds[1] + ext;
-
-            // play state
-            playActive = true;
-            sound2.transform('t61, ' + audioButtonYpositionActive);
-
-            audio.play();
-
-        } else {
-            // pause state
-            playActive = false;
-
-            audio.pause();
-
-            sound2.transform('t61, ' + audioButtonYposition);
-        }
-    });
-
+/*
     // loop1 function
     loop1.click(function() {
 
@@ -287,7 +265,7 @@ $(function() {
             loop1.transform('t111, ' + loopButtonYposition);
         }
     });
-
+*/
     // play function
     playPause.click(function() {
 
