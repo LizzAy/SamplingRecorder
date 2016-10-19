@@ -21,8 +21,10 @@ $(function() {
 // start new Buttons
         sound1 = Snap('#sound1'),
         sound2 = Snap('#sound2'),
-        onState = Snap('#onState'),
-        offState = Snap('#offState'),
+        onState1 = Snap('#onState1'),
+        offState1 = Snap('#offState1'),
+        onState2 = Snap('#onState2'),
+        offState2 = Snap('#offState2'),
 //        loop1 = Snap('#loop1'),
 //        loop2 = Snap('#loop1'),
 // end new Buttons
@@ -44,7 +46,7 @@ $(function() {
         playlist = ['dirty_south_loop_85bpm', 'pop_hiphop_loop_100bpm'],
 // start new Sounds
         sounds = ['kreppes_otoncharts', 'geschlechtsorgane_otoncharts'],
-//        loops = ['electro-drum-beat-120-bpm', 'vintage-drum-and-organ-beat-87-bpm'],
+        loops = ['electro-drum-beat-120-bpm', 'vintage-drum-and-organ-beat-87-bpm'],
 // end new Sounds
         dir = "audio/",
         ext = ".mp3",
@@ -59,7 +61,8 @@ $(function() {
         soundFile;
 
     pauseState.attr("display", "none");
-    offState.attr("display", "none");
+    offState1.attr("display", "none");
+    offState2.attr("display", "none");
 
     $('.mdl-navigation a').click(function() {
 
@@ -187,8 +190,8 @@ $(function() {
           playActive = true;
           audio.src = dir + sounds[0] + ext;
 
-          onState.attr("display", "none");
-          offState.attr("display", "block");
+          onState1.attr("display", "none");
+          offState1.attr("display", "block");
 
           //start audio
           titleUpdate(0);
@@ -197,8 +200,8 @@ $(function() {
       else {
           playActive = false;
 
-          offState.attr("display", "none");
-          onState.attr("display", "block");
+          offState1.attr("display", "none");
+          onState1.attr("display", "block");
 
           audio.pause();
       }
@@ -211,31 +214,23 @@ $(function() {
           playActive = true;
           audio.src = dir + sounds[1] + ext;
 
-          // button anim1
-          var anim1 = function() {
-              sound2.animate({
-                  'transform': 't61, ' + audioButtonYpositionActive
-              }, 200, mina.linear, anim2);
-          };
-
-          var anim2 = function() {
-              sound2.animate({
-                  'transform': 't61, ' + audioButtonYposition
-              }, 200);
-          };
-
-          // button anim1
-          anim1();
+          onState2.attr("display", "none");
+          offState2.attr("display", "block");
 
           // start audio
           titleUpdate(1);
           audio.play();
-      } else {
+      }
+      else {
           playActive = false;
+
+          onState2.attr("display", "none");
+          offState2.attr("display", "block");
+
           audio.pause();
       }
     });
-/*
+
     // loop1 function
     loop1.click(function() {
 
@@ -257,7 +252,7 @@ $(function() {
             loop1.transform('t111, ' + loopButtonYposition);
         }
     });
-*/
+
     // play function
     playPause.click(function() {
 
@@ -369,11 +364,11 @@ $(function() {
     function titleUpdate(track) {
         tracktitle.node.innerHTML = sounds[track];
     }
-/*
+
     function titleUpdateLoop(track) {
         tracktitle.node.innerHTML = loops[track];
     }
-*/
+
     // ******** Recorder ******* //
     function __log(e, data) {
         logText.node.innerHTML = "\n" + e + " " + (data || '');
