@@ -179,13 +179,13 @@ $(function() {
 
           // button anim1
           var anim1 = function() {
-              backward.animate({
+              sound1.animate({
                   'transform': 't85.344053, ' + buttonYpositionActive
               }, 200, mina.linear, anim2);
           };
 
           var anim2 = function() {
-              backward.animate({
+              sound1.animate({
                   'transform': 't85.344053, ' + buttonYposition
               }, 200);
           };
@@ -207,22 +207,22 @@ $(function() {
       if (audio.paused) {
           playActive = true;
           audio.src = dir + sounds[1] + ext;
-
+/*
           // button anim1
           var anim1 = function() {
-              backward.animate({
+              sound2.animate({
                   'transform': 't85.344053, ' + buttonYpositionActive
               }, 200, mina.linear, anim2);
           };
 
           var anim2 = function() {
-              backward.animate({
+              sound2.animate({
                   'transform': 't85.344053, ' + buttonYposition
               }, 200);
           };
 
           anim1();
-
+*/
           // start audio
           audio.play();
           titleUpdate();
