@@ -256,23 +256,23 @@ $(function() {
     // loop2 function
     loop2.click(function() {
 
-        if (audio.paused) {
-            audio.src = dir + loops[1] + ext;
+      if (audio.paused) {
+          playActive = true;
+          audio.src = dir + loops[1] + ext;
 
-            // play state
-            playActive = true;
-            loop2.transform('t181, ' + loopButtonYpositionActive);
+          loop2.transform('t181, ' + loopButtonYpositionActive);
 
-            audio.play();
+          // start audio
+          titleUpdateLoop(1);
+          audio.play();
+      }
+      else {
+          playActive = false;
 
-        } else {
-            // pause state
-            playActive = false;
+          loop2.transform('t181, ' + loopButtonYposition);
 
-            audio.pause();
-
-            loop2.transform('t181, ' + loopButtonYposition);
-        }
+          audio.pause();
+      }
     });
 
     // play function
