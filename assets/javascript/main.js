@@ -260,7 +260,7 @@ $(function() {
           anim1();
 
           // start audio
-          titleUpdate(0);
+          titleUpdateLoop(0);
           audio.play();
       }
       else {
@@ -381,6 +381,10 @@ $(function() {
 
     function titleUpdate(track) {
         tracktitle.node.innerHTML = sounds[track];
+    }
+
+    function titleUpdateLoop(track) {
+        tracktitle.node.innerHTML = loops[track];
     }
 
     // ******** Recorder ******* //
