@@ -202,24 +202,8 @@ $(function() {
           //start audio
           titleUpdate(0);
           audio.play();
-      }
-      else {
-          // button anim1
-          var anim1 = function() {
-              sound1.animate({
-                  'transform': 't11, ' + audioButtonYpositionActive
-              }, 200, mina.linear, anim2);
-          };
-
-          var anim2 = function() {
-              sound1.animate({
-                  'transform': 't11, ' + audioButtonYposition
-              }, 200);
-          };
-
+      } else {
           playActive = false;
-          anim1();
-
           audio.pause();
       }
     });
@@ -252,21 +236,6 @@ $(function() {
           audio.play();
       } else {
           playActive = false;
-
-          // button anim1
-          var anim1 = function() {
-              sound2.animate({
-                  'transform': 't61, ' + audioButtonYpositionActive
-              }, 200, mina.linear, anim2);
-          };
-
-          var anim2 = function() {
-              sound2.animate({
-                  'transform': 't61, ' + audioButtonYposition
-              }, 200);
-          };
-
-          anim1();
           audio.pause();
       }
     });
