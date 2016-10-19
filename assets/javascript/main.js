@@ -200,6 +200,7 @@ $(function() {
       }
       else {
         playActive = false;
+        anim1();
         audio.pause();
       }
     });
@@ -226,11 +227,12 @@ $(function() {
           anim1();
 
           // start audio
-          audio.play();
           titleUpdate();
+          audio.play();
       }
       else {
         playActive = false;
+        anim1();
         audio.pause();
       }
     });
