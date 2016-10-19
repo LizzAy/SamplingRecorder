@@ -184,20 +184,8 @@ $(function() {
           playActive = true;
           audio.src = dir + sounds[0] + ext;
 
-           // button anim1
-           var anim1 = function() {
-               sound1.animate({
-                  'transform': 't11, ' + audioButtonYpositionActive
-               }, 200, mina.linear, anim2);
-           };
-
-           var anim2 = function() {
-               sound1.animate({
-                  'transform': 't11, ' + audioButtonYposition
-               }, 200);
-           };
-
-          //anim1();
+          //playPause.transform('t169.344053, ' + buttonYpositionActive);
+          sound1.fill('#36C77C');
 
           //start audio
           titleUpdate(0);
