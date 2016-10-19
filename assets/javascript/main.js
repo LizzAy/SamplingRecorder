@@ -26,7 +26,7 @@ $(function() {
         onState2 = Snap('#onState2'),
         offState2 = Snap('#offState2'),
         loop1 = Snap('#loop1'),
-        loop2 = Snap('#loop1'),
+        loop2 = Snap('#loop2'),
 // end new Buttons
         tape = Snap('#tape'),
         tapeL = Snap('#tapeL'),
