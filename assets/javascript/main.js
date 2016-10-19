@@ -180,7 +180,6 @@ $(function() {
 
     // new audio play function for audio 1
     sound1.click(function() {
-      audio.src = dir + sounds[0] + ext;
       // button anim1
       var anim1 = function() {
           sound1.animate({
@@ -196,6 +195,7 @@ $(function() {
 
       if (audio.paused) {
           playActive = true;
+          audio.src = dir + sounds[0] + ext;
           anim1();
 
           //start audio
@@ -226,13 +226,13 @@ $(function() {
       };
 
       if (audio.paused) {
-          audio.src = dir + sounds[1] + ext;
           playActive = true;
+          audio.src = dir + sounds[1] + ext;
           // button anim1
           anim1();
 
           // start audio
-          // titleUpdate(1);
+          titleUpdate(1);
           audio.play();
       }
       else {
