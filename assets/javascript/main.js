@@ -206,8 +206,9 @@ $(function() {
           offState1.attr("display", "none");
           onState1.attr("display", "block");
 
-          if (currentAudio === 0) {
+          if (currentAudio === 0 && currentLoop === 20) {
               audio.pause();
+              currentAudio = 20;
           }
       }
     });
@@ -232,8 +233,9 @@ $(function() {
 
           onState2.attr("display", "block");
           offState2.attr("display", "none");
-          if ( currentAudio === 1) {
+          if ( currentAudio === 1 && currentLoop === 20) {
               audio.pause();
+              currentAudio = 20;
           }
       }
     });
@@ -258,8 +260,9 @@ $(function() {
 
             loop1.transform('t111, ' + loopButtonYposition);
 
-            if (currentLoop === 0) {
+            if (currentLoop === 0 && currentAudio === 20) {
                 audio.pause();
+                currentLoop = 20;
             }
         }
     });
@@ -283,8 +286,9 @@ $(function() {
 
           loop2.transform('t181, ' + loopButtonYposition);
 
-          if (currentLoop === 1) {
+          if (currentLoop === 1 && currentAudio === 20) {
             audio.pause();
+            currentLoop = 20;
           }
       }
     });
