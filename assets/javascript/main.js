@@ -171,11 +171,59 @@ $(function() {
         audio.play();
     }
 
-    // new audio play function
+    // new audio play function for audio 1
     sound1.click(function() {
       if (audio.paused) {
           playActive = true;
+          audio.src = dir + sounds[0] + ext;
 
+          // button anim1
+          var anim1 = function() {
+              backward.animate({
+                  'transform': 't85.344053, ' + buttonYpositionActive
+              }, 200, mina.linear, anim2);
+          };
+
+          var anim2 = function() {
+              backward.animate({
+                  'transform': 't85.344053, ' + buttonYposition
+              }, 200);
+          };
+
+          anim1();
+
+          //start audio
+          audio.play();
+          titleUpdate();
+      }
+      else {
+        playActive = false;
+        audio.pause();
+      }
+    });
+
+    // new audio play function for audio 2
+    sound1.click(function() {
+      if (audio.paused) {
+          playActive = true;
+          audio.src = dir + sounds[1] + ext;
+
+          // button anim1
+          var anim1 = function() {
+              backward.animate({
+                  'transform': 't85.344053, ' + buttonYpositionActive
+              }, 200, mina.linear, anim2);
+          };
+
+          var anim2 = function() {
+              backward.animate({
+                  'transform': 't85.344053, ' + buttonYposition
+              }, 200);
+          };
+
+          anim1();
+
+          // start audio
           audio.play();
           titleUpdate();
       }
