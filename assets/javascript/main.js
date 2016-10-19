@@ -228,6 +228,9 @@ $(function() {
     sound2.click(function() {
 
       if (audio.paused) {
+          playActive = true;
+          audio.src = dir + sounds[1] + ext;
+
           // button anim1
           var anim1 = function() {
               sound2.animate({
@@ -241,16 +244,15 @@ $(function() {
               }, 200);
           };
 
-          playActive = true;
-          audio.src = dir + sounds[1] + ext;
           // button anim1
           anim1();
 
           // start audio
           titleUpdate(1);
           audio.play();
-      }
-      else {
+      } else {
+          playActive = false;
+
           // button anim1
           var anim1 = function() {
               sound2.animate({
@@ -263,11 +265,8 @@ $(function() {
                   'transform': 't61, ' + audioButtonYposition
               }, 200);
           };
-          
-          playActive = false;
-          // button anim1
-          anim1();
 
+          anim1();
           audio.pause();
       }
     });
