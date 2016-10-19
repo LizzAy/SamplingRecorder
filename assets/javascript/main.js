@@ -25,8 +25,8 @@ $(function() {
         offState1 = Snap('#offState1'),
         onState2 = Snap('#onState2'),
         offState2 = Snap('#offState2'),
-//        loop1 = Snap('#loop1'),
-//        loop2 = Snap('#loop1'),
+        loop1 = Snap('#loop1'),
+        loop2 = Snap('#loop1'),
 // end new Buttons
         tape = Snap('#tape'),
         tapeL = Snap('#tapeL'),
@@ -224,8 +224,8 @@ $(function() {
       else {
           playActive = false;
 
-          onState2.attr("display", "none");
-          offState2.attr("display", "block");
+          onState2.attr("display", "block");
+          offState2.attr("display", "none");
 
           audio.pause();
       }
