@@ -180,31 +180,32 @@ $(function() {
 
     // new audio play function for audio 1
     sound1.click(function() {
-
       if (audio.paused) {
-          // button anim1
-          var anim1 = function() {
-              sound1.animate({
-                  'transform': 't11, ' + audioButtonYpositionActive
-              }, 200, mina.linear, anim2);
-          };
-
-          var anim2 = function() {
-              sound1.animate({
-                  'transform': 't11, ' + audioButtonYposition
-              }, 200);
-          };
-
           playActive = true;
           audio.src = dir + sounds[0] + ext;
+
+           // button anim1
+           var anim1 = function() {
+               sound1.animate({
+                  'transform': 't11, ' + audioButtonYpositionActive
+               }, 200, mina.linear, anim2);
+           };
+
+           var anim2 = function() {
+               sound1.animate({
+                  'transform': 't11, ' + audioButtonYposition
+               }, 200);
+           };
+
           anim1();
 
           //start audio
           titleUpdate(0);
           audio.play();
-      } else {
-          playActive = false;
-          audio.pause();
+      }
+      else {
+        playActive = false;
+        audio.pause();
       }
     });
 
