@@ -184,8 +184,8 @@ $(function() {
           playActive = true;
           audio.src = dir + sounds[0] + ext;
 
-          //playPause.transform('t169.344053, ' + buttonYpositionActive);
-          sound1.fill('#36C77C');
+          playState.attr("display", "none");
+          pauseState.attr("display", "block");
 
           //start audio
           titleUpdate(0);
@@ -193,6 +193,10 @@ $(function() {
       }
       else {
         playActive = false;
+
+        pauseState.attr("display", "none");
+        playState.attr("display", "block");
+
         audio.pause();
       }
     });
