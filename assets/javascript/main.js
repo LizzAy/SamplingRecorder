@@ -21,6 +21,8 @@ $(function() {
 // start new Buttons
         sound1 = Snap('#sound1'),
         sound2 = Snap('#sound2'),
+        loop1 = Snap('#loop1'),
+        loop2 = Snap('#loop1'),
 // end new Buttons
         tape = Snap('#tape'),
         tapeL = Snap('#tapeL'),
@@ -38,6 +40,7 @@ $(function() {
         playlist = ['dirty_south_loop_85bpm', 'pop_hiphop_loop_100bpm'],
 // start new Sounds
         sounds = ['kreppes_otoncharts', 'geschlechtsorgane_otoncharts'],
+        loops = ['electro-drum-beat-120-bpm', 'vintage-drum-and-organ-beat-87-bpm'],
 // end new Sounds
         dir = "audio/",
         ext = ".mp3",
@@ -175,6 +178,7 @@ $(function() {
 
     // new audio play function for audio 1
     sound1.click(function() {
+      audio.src = dir + sounds[0] + ext;
       // button anim1
       var anim1 = function() {
           sound1.animate({
@@ -190,7 +194,6 @@ $(function() {
 
       if (audio.paused) {
           playActive = true;
-          audio.src = dir + sounds[0] + ext;
           anim1();
 
           //start audio
@@ -206,6 +209,7 @@ $(function() {
 
     // new audio play function for audio 2
     sound2.click(function() {
+      audio.src = dir + sounds[1] + ext;
       // button anim1
       var anim1 = function() {
           sound2.animate({
@@ -221,11 +225,42 @@ $(function() {
 
       if (audio.paused) {
           playActive = true;
-          audio.src = dir + sounds[1] + ext
           anim1();
 
           // start audio
           titleUpdate(1);
+          audio.play();
+      }
+      else {
+        playActive = false;
+        anim1();
+
+        audio.pause();
+      }
+    });
+
+    // new loop play function for loop 1
+    loop1.click(function() {
+      audio.src = dir + loops[0] + ext;
+      // button anim1
+      var anim1 = function() {
+          loop1.animate({
+              'transform': 't111, ' + newbuttonYpositionActive
+          }, 200, mina.linear, anim2);
+      };
+
+      var anim2 = function() {
+          loop1.animate({
+              'transform': 't111, ' + newbuttonYposition
+          }, 200);
+      };
+
+      if (audio.paused) {
+          playActive = true;
+          anim1();
+
+          // start audio
+          titleUpdate(0);
           audio.play();
       }
       else {
@@ -256,7 +291,7 @@ $(function() {
             audio.play();
 
             //audio.play();
-            titleUpdate(currentTrack);
+            //titleUpdate(currentTrack);
 
         } else {
 
