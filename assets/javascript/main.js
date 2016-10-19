@@ -53,6 +53,8 @@ $(function() {
         input,
         analyzer,
         currentTrack = 0,
+        currentAudio = 0
+        currentLoop = 0,
         seekslider,
         seeking = false,
         audio_context,
@@ -188,13 +190,14 @@ $(function() {
     sound1.click(function() {
       if (audio.paused) {
           playActive = true;
-          audio.src = dir + sounds[0] + ext;
+          currentAudio = 0;
+          audio.src = dir + sounds[currentAudio] + ext;
 
           onState1.attr("display", "none");
           offState1.attr("display", "block");
 
           //start audio
-          titleUpdate(0);
+          titleUpdate(currentAudio);
           audio.play();
       }
       else {
@@ -203,7 +206,9 @@ $(function() {
           offState1.attr("display", "none");
           onState1.attr("display", "block");
 
-          audio.pause();
+          if (currentAudio === 0) {
+              audio.pause();
+          }
       }
     });
 
@@ -212,13 +217,14 @@ $(function() {
 
       if (audio.paused) {
           playActive = true;
-          audio.src = dir + sounds[1] + ext;
+          currentAudio = 1;
+          audio.src = dir + sounds[currentAudio] + ext;
 
           onState2.attr("display", "none");
           offState2.attr("display", "block");
 
           // start audio
-          titleUpdate(1);
+          titleUpdate(currentAudio);
           audio.play();
       }
       else {
@@ -226,8 +232,9 @@ $(function() {
 
           onState2.attr("display", "block");
           offState2.attr("display", "none");
-
-          audio.pause();
+          if ( currentAudio === 1) {
+              audio.pause();
+          }
       }
     });
 
@@ -271,7 +278,7 @@ $(function() {
 
           loop2.transform('t181, ' + loopButtonYposition);
 
-          if (audio.src === "audio/vintage-drum-and-organ-beat-87.mp3") {
+          if (loops[1] === "audio/vintage-drum-and-organ-beat-87.mp3") {
             audio.pause();
           }
       }
