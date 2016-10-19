@@ -254,7 +254,6 @@ $(function() {
             playActive = true;
             loop1.transform('t111, ' + loopButtonYpositionActive);
 
-            titleUpdateLoop(0);
             audio.play();
 
         } else {
@@ -277,13 +276,12 @@ $(function() {
             playActive = true;
             loop2.transform('t181, ' + loopButtonYpositionActive);
 
-            titleUpdateLoop(1);
             audio.play();
 
         } else {
             // pause state
             playActive = false;
-
+            
             audio.pause();
 
             loop2.transform('t181, ' + loopButtonYposition);
