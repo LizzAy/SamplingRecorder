@@ -21,8 +21,8 @@ $(function() {
 // start new Buttons
         sound1 = Snap('#sound1'),
         sound2 = Snap('#sound2'),
-        loop1 = Snap('#loop1'),
-        loop2 = Snap('#loop1'),
+//        loop1 = Snap('#loop1'),
+//        loop2 = Snap('#loop1'),
 // end new Buttons
         tape = Snap('#tape'),
         tapeL = Snap('#tapeL'),
@@ -42,7 +42,7 @@ $(function() {
         playlist = ['dirty_south_loop_85bpm', 'pop_hiphop_loop_100bpm'],
 // start new Sounds
         sounds = ['kreppes_otoncharts', 'geschlechtsorgane_otoncharts'],
-        loops = ['electro-drum-beat-120-bpm', 'vintage-drum-and-organ-beat-87-bpm'],
+//        loops = ['electro-drum-beat-120-bpm', 'vintage-drum-and-organ-beat-87-bpm'],
 // end new Sounds
         dir = "audio/",
         ext = ".mp3",
@@ -196,7 +196,7 @@ $(function() {
       if (audio.paused) {
           playActive = true;
           audio.src = dir + sounds[0] + ext;
-          anim1();
+          //anim1();
 
           //start audio
           titleUpdate(0);
@@ -204,7 +204,7 @@ $(function() {
       }
       else {
           playActive = false;
-          anim1();
+          //anim1();
 
           audio.pause();
       }
@@ -229,7 +229,7 @@ $(function() {
           playActive = true;
           audio.src = dir + sounds[1] + ext;
           // button anim1
-          anim1();
+          //anim1();
 
           // start audio
           titleUpdate(1);
@@ -238,7 +238,7 @@ $(function() {
       else {
           playActive = false;
           // button anim1
-          anim1();
+          //anim1();
 
           audio.pause();
       }
@@ -377,11 +377,11 @@ $(function() {
     function titleUpdate(track) {
         tracktitle.node.innerHTML = sounds[track];
     }
-
+/*
     function titleUpdateLoop(track) {
         tracktitle.node.innerHTML = loops[track];
     }
-
+*/
     // ******** Recorder ******* //
     function __log(e, data) {
         logText.node.innerHTML = "\n" + e + " " + (data || '');
