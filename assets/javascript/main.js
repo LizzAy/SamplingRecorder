@@ -175,23 +175,22 @@ $(function() {
 
     // new audio play function for audio 1
     sound1.click(function() {
+      // button anim1
+      var anim1 = function() {
+          sound1.animate({
+              'transform': 't11, ' + newbuttonYpositionActive
+          }, 200, mina.linear, anim2);
+      };
+
+      var anim2 = function() {
+          sound1.animate({
+              'transform': 't11, ' + newbuttonYposition
+          }, 200);
+      };
+
       if (audio.paused) {
           playActive = true;
           audio.src = dir + sounds[0] + ext;
-
-          // button anim1
-          var anim1 = function() {
-              sound1.animate({
-                  'transform': 't11, ' + newbuttonYpositionActive
-              }, 200, mina.linear, anim2);
-          };
-
-          var anim2 = function() {
-              sound1.animate({
-                  'transform': 't11, ' + newbuttonYposition
-              }, 200);
-          };
-
           anim1();
 
           //start audio
@@ -207,23 +206,22 @@ $(function() {
 
     // new audio play function for audio 2
     sound2.click(function() {
+      // button anim1
+      var anim1 = function() {
+          sound2.animate({
+              'transform': 't61, ' + newbuttonYpositionActive
+          }, 200, mina.linear, anim2);
+      };
+
+      var anim2 = function() {
+          sound2.animate({
+              'transform': 't61, ' + newbuttonYposition
+          }, 200);
+      };
+
       if (audio.paused) {
           playActive = true;
-          audio.src = dir + sounds[1] + ext;
-
-          // button anim1
-          var anim1 = function() {
-              sound2.animate({
-                  'transform': 't61, ' + newbuttonYpositionActive
-              }, 200, mina.linear, anim2);
-          };
-
-          var anim2 = function() {
-              sound2.animate({
-                  'transform': 't61, ' + newbuttonYposition
-              }, 200);
-          };
-
+          audio.src = dir + sounds[1] + ext
           anim1();
 
           // start audio
@@ -233,6 +231,7 @@ $(function() {
       else {
         playActive = false;
         anim1();
+
         audio.pause();
       }
     });
