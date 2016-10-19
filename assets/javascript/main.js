@@ -210,9 +210,8 @@ $(function() {
       }
     });
 
-    // new audio play function for audio 2
+/*    // new audio play function for audio 2
     sound2.click(function() {
-      audio.src = dir + sounds[1] + ext;
       // button anim1
       var anim1 = function() {
           sound2.animate({
@@ -227,12 +226,13 @@ $(function() {
       };
 
       if (audio.paused) {
+          audio.src = dir + sounds[1] + ext;
           playActive = true;
           // button anim1
           anim1();
 
           // start audio
-          titleUpdate(1);
+          // titleUpdate(1);
           audio.play();
       }
       else {
@@ -242,6 +242,28 @@ $(function() {
 
           audio.pause();
       }
+    });
+*/
+    // sound2 function
+    sound2.click(function() {
+
+        if (audio.paused) {
+            audio.src = dir + sounds[1] + ext;
+
+            // play state
+            playActive = true;
+            sound2.transform('t61, ' + audioButtonYpositionActive);
+
+            audio.play();
+
+        } else {
+            // pause state
+            playActive = false;
+
+            audio.pause();
+
+            sound2.transform('t61, ' + audioButtonYposition);
+        }
     });
 
     // loop1 function
@@ -263,28 +285,6 @@ $(function() {
             audio.pause();
 
             loop1.transform('t111, ' + loopButtonYposition);
-        }
-    });
-
-    // loop2 function
-    loop2.click(function() {
-
-        if (audio.paused) {
-            audio.src = dir + loops[1] + ext;
-
-            // play state
-            playActive = true;
-            loop2.transform('t181, ' + loopButtonYpositionActive);
-
-            audio.play();
-
-        } else {
-            // pause state
-            playActive = false;
-
-            audio.pause();
-
-            loop2.transform('t181, ' + loopButtonYposition);
         }
     });
 
