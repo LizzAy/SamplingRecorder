@@ -197,7 +197,7 @@ $(function() {
                }, 200);
            };
 
-          anim1();
+          //anim1();
 
           //start audio
           titleUpdate(0);
