@@ -196,7 +196,7 @@ $(function() {
       if (audio.paused) {
           playActive = true;
           audio.src = dir + sounds[0] + ext;
-          //anim1();
+          anim1();
 
           //start audio
           titleUpdate(0);
@@ -204,7 +204,7 @@ $(function() {
       }
       else {
           playActive = false;
-          //anim1();
+          anim1();
 
           audio.pause();
       }
@@ -229,7 +229,7 @@ $(function() {
           playActive = true;
           audio.src = dir + sounds[1] + ext;
           // button anim1
-          //anim1();
+          anim1();
 
           // start audio
           titleUpdate(1);
@@ -238,7 +238,7 @@ $(function() {
       else {
           playActive = false;
           // button anim1
-          //anim1();
+          anim1();
 
           audio.pause();
       }
