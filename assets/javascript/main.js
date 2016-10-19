@@ -72,7 +72,7 @@ $(function() {
         titleUpdate();
     });
 
-    // new Audio Object
+/*    // new Audio Object
     newaudio.src = dir + sounds[0] + ext;
 
     newaudio.addEventListener('ended', function() {
@@ -83,7 +83,7 @@ $(function() {
     newaudio.addEventListener("tracktitle", function() {
       titleUpdate();
     });
-
+*/
     // wheel animation left
     function wheelAnimationL() {
         wheelL.animate({
