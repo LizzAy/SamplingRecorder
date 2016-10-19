@@ -242,21 +242,25 @@ $(function() {
     loop1.click(function() {
 
         if (audio.paused) {
-            audio.src = dir + loops[0] + ext;
+            currentLoop = 0;
+            audio.src = dir + loops[currentLoop] + ext;
 
             // play state
             playActive = true;
             loop1.transform('t111, ' + loopButtonYpositionActive);
 
+            titleUpdateLoop(currentLoop);
             audio.play();
 
         } else {
             // pause state
             playActive = false;
 
-            audio.pause();
-
             loop1.transform('t111, ' + loopButtonYposition);
+
+            if (currentLoop === 0) {
+                audio.pause();
+            }
         }
     });
 
@@ -264,13 +268,14 @@ $(function() {
     loop2.click(function() {
 
       if (audio.paused) {
+          currentLoop = 1;
           playActive = true;
-          audio.src = dir + loops[1] + ext;
+          audio.src = dir + loops[currentLoop] + ext;
 
           loop2.transform('t181, ' + loopButtonYpositionActive);
 
           // start audio
-          titleUpdateLoop(1);
+          titleUpdateLoop(currentLoop);
           audio.play();
       }
       else {
@@ -278,7 +283,7 @@ $(function() {
 
           loop2.transform('t181, ' + loopButtonYposition);
 
-          if (loops[1] === "audio/vintage-drum-and-organ-beat-87.mp3") {
+          if (currentLoop === 1) {
             audio.pause();
           }
       }
