@@ -29,6 +29,8 @@ $(function() {
         tracktitle = Snap('#tracktitle tspan'),
         buttonYposition = 0.679477,
         buttonYpositionActive = 8.679477,
+        newbuttonYposition = 15,
+        newbuttonYpositionActive = 23,
         bboxL = tapeL.getBBox(),
         bboxR = tapeR.getBBox(),
         audio = new Audio(),
@@ -180,13 +182,13 @@ $(function() {
           // button anim1
           var anim1 = function() {
               sound1.animate({
-                  'transform': 't11, ' + buttonYpositionActive
+                  'transform': 't11, ' + newbuttonYpositionActive
               }, 200, mina.linear, anim2);
           };
 
           var anim2 = function() {
               sound1.animate({
-                  'transform': 't11, ' + buttonYposition
+                  'transform': 't11, ' + newbuttonYposition
               }, 200);
           };
 
@@ -203,7 +205,7 @@ $(function() {
     });
 
     // new audio play function for audio 2
-    sound1.click(function() {
+    sound2.click(function() {
       if (audio.paused) {
           playActive = true;
           audio.src = dir + sounds[1] + ext;
@@ -211,13 +213,13 @@ $(function() {
           // button anim1
           var anim1 = function() {
               sound2.animate({
-                  'transform': 't61, ' + buttonYpositionActive
+                  'transform': 't61, ' + newbuttonYpositionActive
               }, 200, mina.linear, anim2);
           };
 
           var anim2 = function() {
               sound2.animate({
-                  'transform': 't61, ' + buttonYposition
+                  'transform': 't61, ' + newbuttonYposition
               }, 200);
           };
 
