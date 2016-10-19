@@ -21,6 +21,8 @@ $(function() {
 // start new Buttons
         sound1 = Snap('#sound1'),
         sound2 = Snap('#sound2'),
+        onState = Snap('#onState'),
+        offState = Snap('#offState'),
 //        loop1 = Snap('#loop1'),
 //        loop2 = Snap('#loop1'),
 // end new Buttons
@@ -57,6 +59,7 @@ $(function() {
         soundFile;
 
     pauseState.attr("display", "none");
+    offState.attr("display", "none");
 
     $('.mdl-navigation a').click(function() {
 
@@ -184,20 +187,20 @@ $(function() {
           playActive = true;
           audio.src = dir + sounds[0] + ext;
 
-          playState.attr("display", "none");
-          pauseState.attr("display", "block");
+          onState.attr("display", "none");
+          offState.attr("display", "block");
 
           //start audio
           titleUpdate(0);
           audio.play();
       }
       else {
-        playActive = false;
+          playActive = false;
 
-        pauseState.attr("display", "none");
-        playState.attr("display", "block");
+          offState.attr("display", "none");
+          onState.attr("display", "block");
 
-        audio.pause();
+          audio.pause();
       }
     });
 
