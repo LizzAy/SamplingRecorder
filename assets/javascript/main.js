@@ -271,7 +271,7 @@ $(function() {
 
           loop2.transform('t181, ' + loopButtonYposition);
 
-          if (audio.src == dir + loops[1] + ext) {
+          if (audio.src === dir + loops[1] + ext) {
             audio.pause();
           }
       }
