@@ -243,8 +243,7 @@ $(function() {
           audio.pause();
       }
     });
-
-    // new loop play function for loop 1
+/*    // new loop play function for loop 1
     loop1.click(function() {
       audio.src = dir + loops[0] + ext;
 
@@ -260,6 +259,28 @@ $(function() {
           audio.pause();
           loop1.transform('t111, ' + loopButtonYposition);
       }
+    });
+*/
+    // play function
+    loop1.click(function() {
+
+        if (audio.paused) {
+            audio.src = dir + loops[0] + ext;
+
+            // play state
+            playActive = true;
+            loop1.transform('t111, ' + loopButtonYpositionActive);
+
+            audio.play();
+
+        } else {
+            // pause state
+            playActive = false;
+            
+            audio.pause();
+
+            loop1.transform('t111, ' + loopButtonYposition);
+        }
     });
 
     // play function
