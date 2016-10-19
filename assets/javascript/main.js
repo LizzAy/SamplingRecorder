@@ -60,8 +60,8 @@ $(function() {
     });
 
 
-    // Audio Object
-    audio.src = dir + playlist[0] + ext;
+    // Audio Object --> Set to new Audios
+    audio.src = dir + sounds[0] + ext;
 
     audio.addEventListener('ended', function() {
         this.currentTime = 0;
@@ -70,18 +70,6 @@ $(function() {
 
     audio.addEventListener("tracktitle", function() {
         titleUpdate();
-    });
-
-    // new Audio Object
-    newaudio.src = dir + sounds[0] + ext;
-
-    newaudio.addEventListener('ended', function() {
-        this.currentTime = 0;
-        this.play();
-    }, false);
-
-    newaudio.addEventListener("tracktitle", function() {
-      titleUpdate();
     });
 
     // wheel animation left
@@ -182,21 +170,21 @@ $(function() {
 
         audio.play();
     }
-/*
+
     // new audio play function
     sound1.click(function() {
       if (audio.paused) {
           playActive = true;
 
-          newaudio.play();
+          audio.play();
           titleUpdate();
       }
       else {
         playActive = false;
-        newaudio.pause();
+        audio.pause();
       }
     });
-*/
+
     // play function
     playPause.click(function() {
 
