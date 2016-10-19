@@ -253,6 +253,28 @@ $(function() {
         }
     });
 
+    // loop2 function
+    loop2.click(function() {
+
+        if (audio.paused) {
+            audio.src = dir + loops[1] + ext;
+
+            // play state
+            playActive = true;
+            loop2.transform('t181, ' + loopButtonYpositionActive);
+
+            audio.play();
+
+        } else {
+            // pause state
+            playActive = false;
+
+            audio.pause();
+
+            loop2.transform('t181, ' + loopButtonYposition);
+        }
+    });
+
     // play function
     playPause.click(function() {
 
