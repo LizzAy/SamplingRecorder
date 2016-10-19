@@ -267,7 +267,7 @@ $(function() {
     });
 
     // loop2 function
-/*    loop2.click(function() {
+    loop2.click(function() {
 
         if (audio.paused) {
             audio.src = dir + loops[1] + ext;
@@ -286,7 +286,7 @@ $(function() {
 
             loop2.transform('t181, ' + loopButtonYposition);
         }
-    });*/
+    });
 
     // play function
     playPause.click(function() {
