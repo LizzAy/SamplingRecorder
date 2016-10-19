@@ -71,7 +71,7 @@ $(function() {
     }, false);
 
     audio.addEventListener("tracktitle", function() {
-        titleUpdate();
+        titleUpdate("tracktitle");
     });
 
     // wheel animation left
@@ -168,7 +168,7 @@ $(function() {
 
         audio.src = dir + playlist[currentTrack] + ext;
 
-        titleUpdate();
+        titleUpdate(currentTrack);
 
         audio.play();
     }
@@ -194,7 +194,7 @@ $(function() {
           anim1();
 
           //start audio
-          titleUpdate();
+          titleUpdate(0);
           audio.play();
       }
       else {
@@ -225,7 +225,7 @@ $(function() {
           anim1();
 
           // start audio
-          titleUpdate();
+          titleUpdate(1);
           audio.play();
       }
       else {
@@ -256,7 +256,7 @@ $(function() {
             audio.play();
 
             //audio.play();
-            titleUpdate();
+            titleUpdate(currentTrack);
 
         } else {
 
@@ -301,7 +301,7 @@ $(function() {
 
         audio.src = dir + playlist[currentTrack] + ext;
 
-        titleUpdate();
+        titleUpdate(currentTrack);
 
         if (playActive) { // if is playing
             audio.play();
@@ -336,7 +336,7 @@ $(function() {
 
         audio.src = dir + playlist[currentTrack] + ext;
 
-        titleUpdate();
+        titleUpdate(currentTrack);
 
         if (playActive) { // if is playing
             audio.play();
@@ -344,8 +344,8 @@ $(function() {
     });
     // end forward function
 
-    function titleUpdate() {
-        tracktitle.node.innerHTML = sounds[currentTrack];
+    function titleUpdate(track) {
+        tracktitle.node.innerHTML = sounds[track];
     }
 
     // ******** Recorder ******* //
