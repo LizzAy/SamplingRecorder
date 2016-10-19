@@ -180,21 +180,21 @@ $(function() {
           // button anim1
           var anim1 = function() {
               sound1.animate({
-                  'transform': 't85.344053, ' + buttonYpositionActive
+                  'transform': 't11, ' + buttonYpositionActive
               }, 200, mina.linear, anim2);
           };
 
           var anim2 = function() {
               sound1.animate({
-                  'transform': 't85.344053, ' + buttonYposition
+                  'transform': 't11, ' + buttonYposition
               }, 200);
           };
 
           anim1();
 
           //start audio
-          audio.play();
           titleUpdate();
+          audio.play();
       }
       else {
         playActive = false;
@@ -207,22 +207,22 @@ $(function() {
       if (audio.paused) {
           playActive = true;
           audio.src = dir + sounds[1] + ext;
-/*
+
           // button anim1
           var anim1 = function() {
               sound2.animate({
-                  'transform': 't85.344053, ' + buttonYpositionActive
+                  'transform': 't61, ' + buttonYpositionActive
               }, 200, mina.linear, anim2);
           };
 
           var anim2 = function() {
               sound2.animate({
-                  'transform': 't85.344053, ' + buttonYposition
+                  'transform': 't61, ' + buttonYposition
               }, 200);
           };
 
           anim1();
-*/
+
           // start audio
           audio.play();
           titleUpdate();
