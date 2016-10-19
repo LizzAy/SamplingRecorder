@@ -180,20 +180,21 @@ $(function() {
 
     // new audio play function for audio 1
     sound1.click(function() {
-      // button anim1
-      var anim1 = function() {
-          sound1.animate({
-              'transform': 't11, ' + audioButtonYpositionActive
-          }, 200, mina.linear, anim2);
-      };
-
-      var anim2 = function() {
-          sound1.animate({
-              'transform': 't11, ' + audioButtonYposition
-          }, 200);
-      };
 
       if (audio.paused) {
+          // button anim1
+          var anim1 = function() {
+              sound1.animate({
+                  'transform': 't11, ' + audioButtonYpositionActive
+              }, 200, mina.linear, anim2);
+          };
+
+          var anim2 = function() {
+              sound1.animate({
+                  'transform': 't11, ' + audioButtonYposition
+              }, 200);
+          };
+
           playActive = true;
           audio.src = dir + sounds[0] + ext;
           anim1();
@@ -203,6 +204,19 @@ $(function() {
           audio.play();
       }
       else {
+          // button anim1
+          var anim1 = function() {
+              sound1.animate({
+                  'transform': 't11, ' + audioButtonYpositionActive
+              }, 200, mina.linear, anim2);
+          };
+
+          var anim2 = function() {
+              sound1.animate({
+                  'transform': 't11, ' + audioButtonYposition
+              }, 200);
+          };
+
           playActive = false;
           anim1();
 
@@ -212,20 +226,21 @@ $(function() {
 
     // new audio play function for audio 2
     sound2.click(function() {
-      // button anim1
-      var anim1 = function() {
-          sound2.animate({
-              'transform': 't61, ' + audioButtonYpositionActive
-          }, 200, mina.linear, anim2);
-      };
-
-      var anim2 = function() {
-          sound2.animate({
-              'transform': 't61, ' + audioButtonYposition
-          }, 200);
-      };
 
       if (audio.paused) {
+          // button anim1
+          var anim1 = function() {
+              sound2.animate({
+                  'transform': 't61, ' + audioButtonYpositionActive
+              }, 200, mina.linear, anim2);
+          };
+
+          var anim2 = function() {
+              sound2.animate({
+                  'transform': 't61, ' + audioButtonYposition
+              }, 200);
+          };
+
           playActive = true;
           audio.src = dir + sounds[1] + ext;
           // button anim1
@@ -236,6 +251,19 @@ $(function() {
           audio.play();
       }
       else {
+          // button anim1
+          var anim1 = function() {
+              sound2.animate({
+                  'transform': 't61, ' + audioButtonYpositionActive
+              }, 200, mina.linear, anim2);
+          };
+
+          var anim2 = function() {
+              sound2.animate({
+                  'transform': 't61, ' + audioButtonYposition
+              }, 200);
+          };
+          
           playActive = false;
           // button anim1
           anim1();
