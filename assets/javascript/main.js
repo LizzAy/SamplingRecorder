@@ -70,10 +70,10 @@ $(function() {
     // Audio Object --> Set to new Audios
     audio.src = dir + sounds[0] + ext;
 
-    /*audio.addEventListener('ended', function() {
+    audio.addEventListener('ended', function() {
         this.currentTime = 0;
         this.play();
-    }, false);*/
+    }, false);
 
     audio.addEventListener("tracktitle", function() {
         titleUpdate("tracktitle");
@@ -180,6 +180,7 @@ $(function() {
 
     // new audio play function for audio 1
     sound1.click(function() {
+      audio.src = dir + sounds[0] + ext;
       // button anim1
       var anim1 = function() {
           sound1.animate({
@@ -194,7 +195,6 @@ $(function() {
       };
 
       if (audio.paused) {
-          audio.src = dir + sounds[0] + ext;
           playActive = true;
           anim1();
 
@@ -212,6 +212,7 @@ $(function() {
 
     // new audio play function for audio 2
     sound2.click(function() {
+      audio.src = dir + sounds[1] + ext;
       // button anim1
       var anim1 = function() {
           sound2.animate({
@@ -226,8 +227,8 @@ $(function() {
       };
 
       if (audio.paused) {
-          audio.src = dir + sounds[1] + ext;
           playActive = true;
+          // button anim1
           anim1();
 
           // start audio
@@ -236,6 +237,7 @@ $(function() {
       }
       else {
           playActive = false;
+          // button anim1
           anim1();
 
           audio.pause();
@@ -248,19 +250,15 @@ $(function() {
 
       if (audio.paused) {
           playActive = true;
-          // button anim1
           loop1.transform('t111, ' + loopButtonYpositionActive);
 
           // start audio
           titleUpdateLoop(0);
           audio.play();
-      }
-      else {
+      } else {
           playActive = false;
-          // button anim1
-          loop1.transform('t111, ' + loopButtonYposition);
-
           audio.pause();
+          loop1.transform('t111, ' + loopButtonYposition);
       }
     });
 
