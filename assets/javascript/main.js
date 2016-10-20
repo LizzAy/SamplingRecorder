@@ -261,7 +261,7 @@ $(function() {
             // pause state
             playActive = false;
 
-            loopButtons.transform.translateY(loopButtonYposition);
+            loopButtons.style.transform = "translateY(loopButtonYposition)";
             //loop1.transform('t111, ' + loopButtonYposition);
             audio.pause;
 
