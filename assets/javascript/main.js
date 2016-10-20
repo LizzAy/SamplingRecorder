@@ -191,6 +191,7 @@ $(function() {
     // new audio play function for audio 1
     sound1.click(function() {
       var audio_sound1 = document.createElement("audio");
+      alert("audio.paused: " + audio_sound1.paused);
 
       if (audio_sound1.paused) {
           currentAudio = 0;
@@ -204,7 +205,6 @@ $(function() {
           //start audio
           titleUpdate(currentAudio);
           audio_sound1.play();
-          alert("audio.paused: " + audio_sound1.paused + " playActive: " + playActive);
       }
       else {
           playActive = false;
