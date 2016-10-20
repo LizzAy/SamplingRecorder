@@ -48,6 +48,7 @@ $(function() {
 // start new Sounds
         sounds = ['kreppes_otoncharts', 'geschlechtsorgane_otoncharts'],
         audio_sound = [],
+        tracks = new Array(),
         loops = ['electro-drum-beat-120-bpm', 'vintage-drum-and-organ-beat-87-bpm'],
 // end new Sounds
         dir = "audio/",
@@ -77,10 +78,11 @@ $(function() {
 
 
     // Audio Object --> Set to new Audios
-    for (var i=0; i<2; i++) {
-      audio_sound[i] = new Audio();
-      audio_sound[i].src = dir + sounds[i] + ext;
-    }
+    tracks[0] = new Array();
+    tracks[0][0] = new Audio();
+    tracks[0][0].src = dir + sounds[0] + ext;
+    tracks[0][1] = new Audio();
+    tracks[0][1].src = dir + sounds[1] + ext;
 
     audio_loop = new Audio();
 
@@ -194,8 +196,8 @@ $(function() {
 
     // new audio play function for audio 1
     sound1.click(function() {
-      if (audio_sound[0].paused) {
-          audio_sound[0].load();
+      if (tracks[0][0].paused) {
+          tracks[0][0].load();
           playActive = true;
 
           // style: change button color
@@ -204,7 +206,7 @@ $(function() {
 
           //start audio
           titleUpdate(0);
-          audio_sound[0].play();
+          tracks[0][0].play();
       }
       else {
           playActive = false;
@@ -213,14 +215,14 @@ $(function() {
           offState1.attr("display", "none");
           onState1.attr("display", "block");
 
-          audio_sound[0].pause();
+          tracks[0][0].pause();
       }
     });
 
     // new audio play function for audio 2
     sound2.click(function() {
-      if (audio_sound[1].paused) {
-          audio_sound[1].load();
+      if (tracks[0][1].paused) {
+          tracks[0][1].load();
           playActive = true;
 
           // style: change button color
@@ -229,7 +231,7 @@ $(function() {
 
           // start audio
           titleUpdate(1);
-          audio_sound[1].play();
+          tracks[0][1].play();
       }
       else {
           playActive = false;
@@ -238,7 +240,7 @@ $(function() {
           onState2.attr("display", "block");
           offState2.attr("display", "none");
 
-          audio_sound[1].pause();
+          tracks[0][1].pause();
       }
     });
 
@@ -438,8 +440,7 @@ $(function() {
     }
 
     function startUserMedia(stream) {
-        var audioSource = document.GetElementById("newButtons");
-        var input = audio_context.createMediaElementSource(audioSource);
+        var input = audio_context.createMediaElementSource(tracks);
         __log('Media stream created.');
 
         // input entspricht hier noch dem was vom Mikrofon kommt und wird hier an den Recorder zur Aufnahme übergeben
