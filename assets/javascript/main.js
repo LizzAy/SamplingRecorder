@@ -190,8 +190,8 @@ $(function() {
 
     // new audio play function for audio 1
     sound1.click(function() {
-      var audio_sound1 = document.createElement("audio");
       alert("audio.paused: " + audio_sound1.paused);
+      var audio_sound1 = document.createElement("audio");
 
       if (audio_sound1.paused) {
           currentAudio = 0;
