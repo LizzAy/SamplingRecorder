@@ -192,6 +192,7 @@ $(function() {
     sound1.click(function() {
       var audio_sound1 = document.createElement("audio");
       audio_sound1.src = dir + sounds[currentAudio] + ext;
+      alert(audio_sound1.paused);
 
       if (audio_sound1.paused) {
           playActive = true;
