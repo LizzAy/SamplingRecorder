@@ -192,9 +192,9 @@ $(function() {
     sound1.click(function() {
       var audio_sound1 = document.createElement("audio");
       audio_sound1.src = dir + sounds[currentAudio] + ext;
-      alert(audio_sound1.paused);
 
       if (audio_sound1.paused) {
+          currentAudio = 0;
           playActive = true;
           //audio.src = dir + sounds[currentAudio] + ext;
 
@@ -204,6 +204,7 @@ $(function() {
           //start audio
           titleUpdate(currentAudio);
           audio_sound1.play();
+          alert("audio.paused: " + audio_sound1.paused + " playActive: " + playActive);
       }
       else {
           playActive = false;
