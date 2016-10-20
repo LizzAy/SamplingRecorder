@@ -440,7 +440,7 @@ $(function() {
     }
 
     function startUserMedia(stream) {
-        var input = audio_context.createMediaElementSource(tracks);
+        var input = audio_context.createMediaElementSource(tracks[0]);
         __log('Media stream created.');
 
         // input entspricht hier noch dem was vom Mikrofon kommt und wird hier an den Recorder zur Aufnahme übergeben
