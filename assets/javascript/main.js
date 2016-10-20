@@ -19,7 +19,6 @@ $(function() {
         wheelL = Snap('#wheel-l'),
         wheelR = Snap('#wheel-r'),
 // start new Buttons
-        soundButtons = Snap('#soundButtons'),
         sound1 = Snap('#sound1'),
         sound2 = Snap('#sound2'),
         onState1 = Snap('#onState1'),
@@ -48,6 +47,7 @@ $(function() {
         playlist = ['dirty_south_loop_85bpm', 'pop_hiphop_loop_100bpm'],
 // start new Sounds
         sounds = ['kreppes_otoncharts', 'geschlechtsorgane_otoncharts'],
+        audio_sound = [],
         loops = ['electro-drum-beat-120-bpm', 'vintage-drum-and-organ-beat-87-bpm'],
 // end new Sounds
         dir = "audio/",
@@ -55,7 +55,6 @@ $(function() {
         input,
         analyzer,
         currentTrack = 0,
-        currentAudio = 20,
         currentLoop = 20,
         seekslider,
         seeking = false,
@@ -78,7 +77,12 @@ $(function() {
 
 
     // Audio Object --> Set to new Audios
-    //audio.src = dir + sounds[0] + ext;
+    for (var i=0; i<2; i++) {
+      audio_sound[i] = new Audio();
+      audio_sound[i].src = dir + sounds[i] + ext;
+    }
+
+    audio_loop = new Audio();
 
     audio.addEventListener('ended', function() {
         this.currentTime = 0;
@@ -190,112 +194,124 @@ $(function() {
 
     // new audio play function for audio 1
     sound1.click(function() {
-      currentAudio = 0;
-      var audio_sound1 = document.createElement("audio");
-      audio_sound1.src = dir + sounds[currentAudio] + ext;
-
-      alert("audio.paused: " + audio_sound1.paused);
-
-      if (audio_sound1.paused) {
+      if (audio_sound[0].paused) {
+          audio_sound[0].load();
           playActive = true;
-          //audio.src = dir + sounds[currentAudio] + ext;
 
+          // style: change button color
           onState1.attr("display", "none");
           offState1.attr("display", "block");
 
           //start audio
-          titleUpdate(currentAudio);
-          audio_sound1.play();
-          alert("audio.paused: " + audio_sound1.paused);
+          titleUpdate(0);
+          audio_sound[0].play();
       }
       else {
-          alert("else block");
           playActive = false;
 
+          // style: change button color
           offState1.attr("display", "none");
           onState1.attr("display", "block");
 
-          audio_sound1.pause();
+          audio_sound[0].pause();
       }
     });
 
     // new audio play function for audio 2
     sound2.click(function() {
-
-      if (audio.paused) {
+      if (audio_sound[1].paused) {
+          audio_sound[1].load();
           playActive = true;
-          currentAudio = 1;
-          audio.src = dir + sounds[currentAudio] + ext;
 
+          // style: change button color
           onState2.attr("display", "none");
           offState2.attr("display", "block");
 
           // start audio
-          titleUpdate(currentAudio);
-          audio.play();
+          titleUpdate(1);
+          audio_sound[1].play();
       }
       else {
           playActive = false;
 
+          // style: change button color
           onState2.attr("display", "block");
           offState2.attr("display", "none");
-          if ( currentAudio === 1 && currentLoop === 20) {
-              audio.pause();
-              currentAudio = 20;
-          }
+
+          audio_sound[1].pause();
       }
     });
 
     // loop1 function
     loop1.click(function() {
-
-        if (audio.paused) {
+        if (audio_loop.paused) {
             currentLoop = 0;
-            audio.src = dir + loops[currentLoop] + ext;
-            audio.play;
+            audio_loop.src = dir + loops[currentLoop] + ext;
 
             // play state
             playActive = true;
             loop1.transform('t111, ' + loopButtonYpositionActive);
 
             titleUpdateLoop(currentLoop);
-            audio.play();
+            audio_loop.play();
 
         } else {
-            // pause state
-            playActive = false;
+            if (currentLoop === 0) {
+              // pause state
+              playActive = false;
 
-            loop1.transform('t111, ' + loopButtonYposition);
+              loop1.transform('t111, ' + loopButtonYposition);
 
-            if (currentLoop === 0 && currentAudio === 20) {
-                audio.pause();
-                currentLoop = 20;
+              audio_loop.pause();
+              currentLoop = 20;
+            }
+            else {
+              currentLoop = 0;
+              audio_loop.src = dir + loops[currentLoop] + ext;
+
+              playActive = true;
+              loop1.transform('t111, ' + loopButtonYpositionActive);
+              loop2.transform('t181, ' + loopButtonYposition);
+
+              titleUpdateLoop(currentLoop);
+              audio_loop.play();
             }
         }
     });
 
     // loop2 function
     loop2.click(function() {
-
-      if (audio.paused) {
+      if (audio_loop.paused) {
           currentLoop = 1;
-          playActive = true;
-          audio.src = dir + loops[currentLoop] + ext;
+          audio_loop.src = dir + loops[currentLoop] + ext;
 
+          playActive = true;
           loop2.transform('t181, ' + loopButtonYpositionActive);
 
           // start audio
           titleUpdateLoop(currentLoop);
-          audio.play();
+          audio_loop.play();
       }
       else {
-          playActive = false;
+          if (currentLoop === 1) {
+            // pause state
+            playActive = false;
 
-          loop2.transform('t181, ' + loopButtonYposition);
+            loop2.transform('t181, ' + loopButtonYposition);
 
-          if (currentLoop === 1 && currentAudio === 20) {
-            audio.pause();
+            audio_loop.pause();
             currentLoop = 20;
+          }
+          else {
+            currentLoop = 1;
+            audio_loop.src = dir + loops[currentLoop] + ext;
+
+            playActive = true;
+            loop2.transform('t181, ' + loopButtonYpositionActive);
+            loop1.transform('t111, ' + loopButtonYposition);
+
+            titleUpdateLoop(currentLoop);
+            audio_loop.play();
           }
       }
     });
