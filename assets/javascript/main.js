@@ -206,6 +206,7 @@ $(function() {
           //start audio
           titleUpdate(currentAudio);
           audio_sound1.play();
+          alert("audio.paused: " + audio_sound1.paused);
       }
       else {
           alert("else block");
