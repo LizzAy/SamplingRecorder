@@ -195,7 +195,6 @@ $(function() {
 
       if (audio_sound1.paused) {
           playActive = true;
-          currentAudio = 0;
           //audio.src = dir + sounds[currentAudio] + ext;
 
           onState1.attr("display", "none");
@@ -211,9 +210,7 @@ $(function() {
           offState1.attr("display", "none");
           onState1.attr("display", "block");
 
-          if (currentAudio === 0 && currentLoop === 20) {
-              audio_sound1.pause();
-          }
+          audio_sound1.pause();
       }
     });
 
