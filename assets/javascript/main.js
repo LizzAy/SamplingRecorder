@@ -190,17 +190,20 @@ $(function() {
 
     // new audio play function for audio 1
     sound1.click(function() {
-      if (audio.paused) {
+      var audio_sound1 = document.createElement("audio");
+      audio_sound1.src = dir + sounds[currentAudio] + ext;
+
+      if (audio_sound1.paused) {
           playActive = true;
           currentAudio = 0;
-          audio.src = dir + sounds[currentAudio] + ext;
+          //audio.src = dir + sounds[currentAudio] + ext;
 
           onState1.attr("display", "none");
           offState1.attr("display", "block");
 
           //start audio
           titleUpdate(currentAudio);
-          audio.play();
+          audio_sound1.play();
       }
       else {
           playActive = false;
@@ -209,8 +212,7 @@ $(function() {
           onState1.attr("display", "block");
 
           if (currentAudio === 0 && currentLoop === 20) {
-              audio.pause();
-              currentAudio = 20;
+              audio_sound1.pause();
           }
       }
     });
@@ -261,15 +263,11 @@ $(function() {
             // pause state
             playActive = false;
 
-            loopButtons.style.transform = "translateY(loopButtonYposition)";
-            //loop1.transform('t111, ' + loopButtonYposition);
-            audio.pause;
+            loop1.transform('t111, ' + loopButtonYposition);
 
-            if (currentLoop != 0 && currentAudio === 20) {
-                //audio.pause();
-                audio.src = dir + loops[currentLoop] + ext;
-                audio.play;
-                //currentLoop = 20;
+            if (currentLoop === 0 && currentAudio === 20) {
+                audio.pause();
+                currentLoop = 20;
             }
         }
     });
