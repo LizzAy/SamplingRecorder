@@ -78,7 +78,7 @@ $(function() {
 
 
     // Audio Object --> Set to new Audios
-    audio.src = dir + sounds[0] + ext;
+    //audio.src = dir + sounds[0] + ext;
 
     audio.addEventListener('ended', function() {
         this.currentTime = 0;
