@@ -190,13 +190,14 @@ $(function() {
 
     // new audio play function for audio 1
     sound1.click(function() {
-      alert("audio.paused: " + audio_sound1.paused);
+      currentAudio = 0;
       var audio_sound1 = document.createElement("audio");
+      audio_sound1.src = dir + sounds[currentAudio] + ext;
+
+      alert("audio.paused: " + audio_sound1.paused);
 
       if (audio_sound1.paused) {
-          currentAudio = 0;
           playActive = true;
-          audio_sound1.src = dir + sounds[currentAudio] + ext;
           //audio.src = dir + sounds[currentAudio] + ext;
 
           onState1.attr("display", "none");
@@ -207,6 +208,7 @@ $(function() {
           audio_sound1.play();
       }
       else {
+          alert("else block");
           playActive = false;
 
           offState1.attr("display", "none");
