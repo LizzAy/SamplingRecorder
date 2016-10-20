@@ -19,12 +19,14 @@ $(function() {
         wheelL = Snap('#wheel-l'),
         wheelR = Snap('#wheel-r'),
 // start new Buttons
+        soundButtons = Snap('#soundButtons'),
         sound1 = Snap('#sound1'),
         sound2 = Snap('#sound2'),
         onState1 = Snap('#onState1'),
         offState1 = Snap('#offState1'),
         onState2 = Snap('#onState2'),
         offState2 = Snap('#offState2'),
+        loopButtons = Snap('#loopButtons'),
         loop1 = Snap('#loop1'),
         loop2 = Snap('#loop2'),
 // end new Buttons
@@ -246,6 +248,7 @@ $(function() {
         if (audio.paused) {
             currentLoop = 0;
             audio.src = dir + loops[currentLoop] + ext;
+            audio.play;
 
             // play state
             playActive = true;
@@ -258,11 +261,15 @@ $(function() {
             // pause state
             playActive = false;
 
-            loop1.transform('t111, ' + loopButtonYposition);
+            loopButtons.transform.translateY(loopButtonYposition);
+            //loop1.transform('t111, ' + loopButtonYposition);
+            audio.pause;
 
-            if (currentLoop === 0 && currentAudio === 20) {
-                audio.pause();
-                currentLoop = 20;
+            if (currentLoop != 0 && currentAudio === 20) {
+                //audio.pause();
+                audio.src = dir + loops[currentLoop] + ext;
+                audio.play;
+                //currentLoop = 20;
             }
         }
     });
