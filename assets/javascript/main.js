@@ -438,9 +438,11 @@ $(function() {
     }
 
     function startUserMedia(stream) {
-        var input = audio_context.createMediaStreamSource(stream);
+        //var input = audio_context.createMediaStreamSource(stream);
+        var input = audio_context.createMediaElementSource(audio_loop);
         __log('Media stream created.');
 
+        //input.connect(analyzer);
         recorder = new Recorder(input);
         __log('Ready!');
     }
@@ -503,6 +505,7 @@ $(function() {
 
     window.onload = function init() {
         try {
+        // ### navigator.getUserMedia holt vom User die erlaubnis ein die Kamera oder das Mikrofon anzuzapfen um von der den Input als 'stream' zu erhaten ###
             // webkit shim
             window.AudioContext = window.AudioContext || window.webkitAudioContext;
             navigator.getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia); //this will set navigator.getUserMedia to whatever it detects to be the proper prefixed version.
@@ -515,6 +518,7 @@ $(function() {
             alert('No web audio support!');
         }
 
+        // ### Anfrage nach Mikrofon Nutzung in Funktio startUserMedia sonst Fehlermeldung im log ###
         navigator.getUserMedia({
             audio: true
         }, startUserMedia, function(e) {
