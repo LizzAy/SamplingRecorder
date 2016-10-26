@@ -419,8 +419,6 @@ $(function() {
         titleUpdate(currentTrack);
 
         if (playActive) { // if is playing
-            audio_sound[0].play();
-            audio_loop.play();
             audio.play();
         }
     });
@@ -439,18 +437,15 @@ $(function() {
         logText.node.innerHTML = "\n" + e + " " + (data || '');
     }
 
-    function startUserMedia(stream) {
-        var source_loop = audio_context.createMediaElementSource(audio_loop);
-        var source_audio = audio_context.createMediaElementSource(audio_sound[0]);
-        source_audio.connect(source_loop);
-        //var mixtape = audio_context.createGain();
-        //audio_loop.connect(audio_sound[0]);
-        //audio_sound[0].connect(mixtape);
-        //var input = audio_context.createMediaElementSource(source_loop);
+    function startUserMedia() {
+        //var source_loop = audio_context.createMediaElementSource(audio_loop);
+        //var source_audio = audio_context.createMediaElementSource(audio_sound[0]);
+        //source_audio.connect(source_loop);
+        var input = audio_context.createMediaElementSource(audio_loop);
         __log('Media stream created.');
 
         // input wird hier an den Recorder zur Aufnahme übergeben
-        recorder = new Recorder(source_audio);
+        recorder = new Recorder(input);
         __log('Ready!');
     }
 
@@ -515,7 +510,7 @@ $(function() {
         // ### navigator.getUserMedia holt vom User die erlaubnis ein die Kamera oder das Mikrofon anzuzapfen um von der den Input als 'stream' zu erhaten ###
             // webkit shim
             window.AudioContext = window.AudioContext || window.webkitAudioContext;
-            navigator.getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia); //this will set navigator.getUserMedia to whatever it detects to be the proper prefixed version.
+            //navigator.getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia); //this will set navigator.getUserMedia to whatever it detects to be the proper prefixed version.
             window.URL = window.URL || window.webkitURL;
 
             audio_context = new AudioContext;
@@ -524,13 +519,14 @@ $(function() {
         } catch (e) {
             alert('No web audio support!');
         }
+        startUserMedia();
 
         // ### Anfrage nach Mikrofon Nutzung in Funktio startUserMedia sonst Fehlermeldung im log ###
-        navigator.getUserMedia({
+/*        navigator.getUserMedia({
             audio: true
         }, startUserMedia, function(e) {
             __log('No live audio input: ' + e);
-        });
+        });*/
     };
 
     var sketch = function(noiseWave) {
