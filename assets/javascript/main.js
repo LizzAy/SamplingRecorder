@@ -419,6 +419,8 @@ $(function() {
         titleUpdate(currentTrack);
 
         if (playActive) { // if is playing
+            audio_sound[0].play();
+            audio_loop.play();
             audio.play();
         }
     });
@@ -448,7 +450,7 @@ $(function() {
         __log('Media stream created.');
 
         // input wird hier an den Recorder zur Aufnahme übergeben
-        recorder = new Recorder(source_loop);
+        recorder = new Recorder(source_audio);
         __log('Ready!');
     }
 
