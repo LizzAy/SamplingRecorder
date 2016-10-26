@@ -513,12 +513,15 @@ $(function() {
             //navigator.getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia); //this will set navigator.getUserMedia to whatever it detects to be the proper prefixed version.
             window.URL = window.URL || window.webkitURL;
 
+
             audio_context = new AudioContext;
+
             __log('Audio context set up.');
             //	__log('navigator.getUserMedia ' + (navigator.getUserMedia ? 'available.' : 'not present!'));
         } catch (e) {
             alert('No web audio support!');
         }
+
         startUserMedia();
 
         // ### Anfrage nach Mikrofon Nutzung in Funktio startUserMedia sonst Fehlermeldung im log ###
@@ -601,11 +604,12 @@ $(function() {
 
     var myP5 = new p5(sketch);
 
-    navigator.getUserMedia({
+    /*navigator.getUserMedia({
         audio: true
     }, startUserMedia, function(e) {
         __log('No live audio input: ' + e);
-    });
+    });*/
+    startUserMedia();
 
 }); // doc ready
 
