@@ -438,10 +438,10 @@ $(function() {
     }
 
     function startUserMedia(stream) {
-        var mixtape = audio_context.createGain();
-        audio_loop.connect(audio_sound[0]);
-        audio_sound[0].connect(mixtape);
-        var input = audio_context.createMediaElementSource(mixtape);
+        //var mixtape = audio_context.createGain();
+        //audio_loop.connect(audio_sound[0]);
+        //audio_sound[0].connect(mixtape);
+        var input = audio_context.createMediaElementSource(audio_loop);
         __log('Media stream created.');
 
         // input wird hier an den Recorder zur Aufnahme übergeben
