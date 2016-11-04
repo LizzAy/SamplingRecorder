@@ -252,7 +252,7 @@ $(function() {
       offState3.attr("display", "block");
 
       var spiel = audio_context.createMediaElementSource(GetElementById("audio_sound03"));
-      alert(spiel.numberOfOutputs + " and ");
+      alert("Play Audio");
     });
 
     // loop1 function
