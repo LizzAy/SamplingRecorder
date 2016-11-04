@@ -21,10 +21,13 @@ $(function() {
 // start new Buttons
         sound1 = Snap('#sound1'),
         sound2 = Snap('#sound2'),
+        sound3 = Snap('#sound3'),
         onState1 = Snap('#onState1'),
         offState1 = Snap('#offState1'),
         onState2 = Snap('#onState2'),
         offState2 = Snap('#offState2'),
+        onState3 = Snap('#onState3'),
+        offState3 = Snap('#offState3'),
         loopButtons = Snap('#loopButtons'),
         loop1 = Snap('#loop1'),
         loop2 = Snap('#loop2'),
@@ -66,6 +69,7 @@ $(function() {
     pauseState.attr("display", "none");
     offState1.attr("display", "none");
     offState2.attr("display", "none");
+    offState3.attr("display", "none");
 
     $('.mdl-navigation a').click(function() {
 
@@ -240,6 +244,15 @@ $(function() {
 
           audio_sound[1].pause();
       }
+    });
+
+    // new audio play function for audio 3
+    sound3.click(function() {
+      onState3.attr("display", "none");
+      offState3.attr("display", "block");
+
+      var spiel = audio_context.createMediaElementSource(GetElementById("audio_sound03"));
+      alert(spiel.numberOfOutputs + " and ");
     });
 
     // loop1 function
@@ -521,7 +534,6 @@ $(function() {
         } catch (e) {
             alert('No web audio support!');
         }
-
         startUserMedia();
 
         // ### Anfrage nach Mikrofon Nutzung in Funktio startUserMedia sonst Fehlermeldung im log ###
